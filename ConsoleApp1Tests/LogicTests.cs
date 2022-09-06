@@ -32,5 +32,16 @@ namespace FirstApplication.Tests
 
             Assert.AreEqual("Площадь круга больше площади квадрата!", OutMessage);
         }
+
+        [TestMethod()]
+        public void CircleSAreEqualSquareS()
+        {
+            var Circle_S = Logic.Circle_area(0);
+            var Square_S = Logic.Square_area(0);
+
+            var OutMessage = Logic.Compare(Square_S, Circle_S);
+
+            Assert.AreEqual("Площади круга и квадрата одинаковы!", OutMessage);
+        }
     }
 }
