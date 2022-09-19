@@ -14,34 +14,27 @@ namespace FirstApplication.Tests
         [TestMethod()]
         public void SquareSMoreThanCircleS()
         {
-            var Circle_S = Logic.Circle_area(3);
-            var Square_S = Logic.Square_area(7);
+            string outMessage = Logic.DoCompare(6, 1);
+            
 
-            var OutMessage = Logic.Compare(Square_S, Circle_S);
-
-            Assert.AreEqual("Площадь квадрата больше площади круга!", OutMessage);
+            Assert.AreEqual("Площадь квадрата больше площади круга!", outMessage);
         }
 
         [TestMethod()]
         public void CircleSMoreThanSquareS()
         {
-            var Circle_S = Logic.Circle_area(5);
-            var Square_S = Logic.Square_area(6);
+            string outMessage = Logic.DoCompare(6, 6);
 
-            var OutMessage = Logic.Compare(Square_S, Circle_S);
-
-            Assert.AreEqual("Площадь круга больше площади квадрата!", OutMessage);
+            Assert.AreEqual("Площадь круга больше площади квадрата!", outMessage);
         }
 
         [TestMethod()]
         public void CircleSAreEqualSquareS()
         {
-            var Circle_S = Logic.Circle_area(0);
-            var Square_S = Logic.Square_area(0);
+            string outMessage = Logic.DoCompare(0, 0);
 
-            var OutMessage = Logic.Compare(Square_S, Circle_S);
 
-            Assert.AreEqual("Площади круга и квадрата одинаковы!", OutMessage);
+            Assert.AreEqual("Площади круга и квадрата одинаковы!", outMessage);
         }
     }
 }

@@ -2,56 +2,64 @@
     {
         public class Logic
         {
-            public static double Square_area(int Square_Side)
+            public static double CalculateSquareArea(int squareSide)
             {
-                double Sqare_S = Math.Pow(Square_Side, 2);
-                return Sqare_S;
+                double squareArea = Math.Pow(squareSide, 2);
+                return squareArea;
             }
 
-            public static double Circle_area(int Circle_Radius)
+            public static double CalculateCircleArea(int circleRadius)
             {
-                double Circle_S = Math.Pow(Circle_Radius, 2) * 3.14;
-                return Circle_S;
+                double circleArea = Math.Pow(circleRadius, 2) * Math.PI;
+                return circleArea;
             }
 
-            public static string Compare(double Square_S, double Circle_S)
+            public static string Compare(double squareArea, double circleArea)
             {
-                string OutMessage = "";
-                if (Square_S > Circle_S)
+                           
+                string outMessage = "";
+                if (squareArea > circleArea)
                 {
-                    OutMessage = "Площадь квадрата больше площади круга!";
+                    outMessage = "Площадь квадрата больше площади круга!";
                 }
-                else if (Circle_S > Square_S)
+                else if (circleArea > squareArea)
                 {
-                    OutMessage = "Площадь круга больше площади квадрата!";
+                    outMessage = "Площадь круга больше площади квадрата!";
                 }
                 else
                 {
-                    OutMessage = "Площади круга и квадрата одинаковы!";
+                    outMessage = "Площади круга и квадрата одинаковы!";
                 }
-                return OutMessage;
+                return outMessage;
+            }
+
+            public static string DoCompare(int squareSide, int circleRadius)
+             {
+                double squareArea = Logic.CalculateSquareArea(squareSide);
+                double circleArea = Logic.CalculateCircleArea(circleRadius);
+                string outMessage = Logic.Compare(squareArea, circleArea);
+                return outMessage;
             }
         }
         public class Program
         {
-        
-            static void Main(string[] args)
+       /* private static int circleRadius;*/
+
+        static void Main(string[] args)
             {
                 //НАЧАЛО взаимодейтсвия с пользователем
-                Console.WriteLine("Введите R круга");
-                var Circle_Radius = int.Parse(Console. ReadLine());
                 Console.WriteLine("Введите длинну стороны квадрата");
-                var Square_Side = int.Parse(Console.ReadLine());
+                var squareSide = int.Parse(Console.ReadLine());
+                Console.WriteLine("Введите R круга");
+                var сircleRadius = int.Parse(Console.ReadLine());
                 //КОНЕЦ взаимодейтсвия с пользователем
 
                 //НАЧАЛО логики
-                var Circle_S = Logic.Circle_area(Circle_Radius);
-                var Square_S = Logic.Square_area(Square_Side);
-                var OutMassage = Logic.Compare(Square_S, Circle_S);
+                var outMassage = Logic.DoCompare(squareSide, сircleRadius);
                 //КОНЕЦ логики
 
                 //НАЧАЛО взаимодейтсвия с пользователем
-                Console.WriteLine(OutMassage);
+                Console.WriteLine(outMassage);
                 Console.ReadLine();
                 //КОНЕЦ взаимодейтсвия с пользователем
             }
